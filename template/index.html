@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPS</title>
+</head>
+<body>
+    <h1>HPS</h1>
+    <br>
+    <form method="post" action="heart">
+      {% csrf_token %}
+        <div class="form-group">
+          <input type="number" placeholder="Enter Age" name="age" id="age" class="form-control" required>
+          <!--<label for="age" class="ph-area">Enter Your Age</label>-->
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="sex" required="required">
+            <option hidden value="" disabled selected>Select Gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control chosenn" name="cp" required="required">
+            <option hidden value="" disabled selected>Select Chest Pain Type(cp)</option>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non Anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="number" name="trestbps" placeholder="Enter Resting Blood Pressure (mm Hg)(trestbps)" id="trestbps" class="form-control" required>
+          <!--<label for="trestbps" class="ph-area">Enter Resting Blood Pressure (mm Hg)(trestbps)</label>-->
+        </div>
+
+        <div class="form-group">
+          <input type="number" name="chol" placeholder="Enter Serum Cholesterol" id="chol" class="form-control" required>
+          <!--<label for="chol" class="ph-area">Enter Serum Cholestoral (mg/dl)(chol)</label>-->
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="fbs" required="required">
+            <option hidden value="" disabled selected>Fasting Blood Sugar > 120 (mg/dl)(fbs)</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <select class="form-control chosenn" name="restecg" required="required">
+            <option hidden value="" disabled selected>Rresting Electrocardiographic Results(restecg)</option>
+            <option value="0">Normal</option>
+            <option value="1">Abnormal</option>
+            <option value="2">Probable</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="number" name="thalach" id="thalach" placeholder="Enter Maximum Heart Rate Achieved (thalach)" class="form-control" required>
+          <!--<label for="thalach" class="ph-area">Enter Maximum Heart Rate Achieved (thalach)</label>-->
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="exang" required="required">
+            <option hidden value="" disabled selected>Select Exercise Induced Angina (exang)</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="oldpeak" id="oldpeak" placeholder="Enter Your Oldpeak(oldpeak)" class="form-control" required>
+          <!--<label for="oldpeak" class="ph-area">Enter Your Oldpeak(oldpeak)</label>-->
+        </div>
+
+        <div class="form-group">
+          <select class="form-control chosenn" name="slope" required="required">
+            <option hidden value="" disabled selected>Select Peak Exercise ST Segment (Slope)</option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+          </select>
+        </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="reset" class="btn btn-danger" value="Reset">
+      </div>
+    </form>
+    <br>
+    {%  if scoreval  %}
+    <div class="title">
+      <h3>
+        <font color='Black'>Our model predicted you are </font>
+      </h3>
+      <font color='white'>
+        <h1>
+          <font color="blue">{{ scoreval}}</font>
+       </h1>
+      </font>
+      <h3>
+        <font color='Black'>by Heart Disease</font>
+      </h3>
+    </div>
+    {%  endif  %}
+</body>
+</html>
